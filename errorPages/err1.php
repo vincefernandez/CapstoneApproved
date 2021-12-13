@@ -1,5 +1,4 @@
-
-	<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -8,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.84.0">
-  <title>Reciever|Homepage</title>
+  <title> ERRR PAGE</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
@@ -16,6 +15,15 @@
 
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  </head>
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="headers.css" rel="stylesheet">
+</head>
+
+<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+  <strong class="h2">SORRY you dnt have access to this shit!</strong><a href="../index.php">TryLogin</a>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
