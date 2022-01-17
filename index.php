@@ -4,7 +4,7 @@ include('app/class.php');
 $student->loginUser();
 
 
-if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
+if (isset($_SESSION['Account']) && !empty($_SESSION['Position'])) {
 	echo 'Hi ', $_SESSION["Account"];
 } else {
 	echo "No Session";
@@ -18,7 +18,7 @@ if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
 		<div class="container border shadow-lg p-3 mb-5 rounded">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Name of THIS SITE (REMOVE IF AYAW)</h2>
+					<h1 class="heading-section">RECORDS MANAGEMENT</h1>
 				</div>
 			</div>
 			<div class="row justify-content-center">

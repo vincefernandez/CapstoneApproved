@@ -3,7 +3,7 @@ include('../app/class.php');
 
 session_start();
 
-if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
+if (isset($_SESSION['Position']) && !empty($_SESSION['Account'])) {
   if ($_SESSION['Account'] == "Reciever") {
     echo 'Hello ' . $_SESSION['Account'];
   } else {

@@ -3,7 +3,7 @@
 class myStudent
 {
 
-    private $server = "mysql:host=localhost;dbname=test1";
+    private $server = "mysql:host=localhost;dbname=records";
     private $user = "root";
     private $pass = "";
 
@@ -48,9 +48,9 @@ class myStudent
 
             $Email = $_POST['email'];
             $Password = $_POST['password'];
-            // $Account = $_POST['Reciever'];
+            // $Position = $_POST['Reciever'];
 
-            $stmt = $connection->prepare("SELECT * FROM user1 where email = ? AND password = ?");
+            $stmt = $connection->prepare("SELECT * FROM loginusers where Email = ? AND Password = ?");
             $stmt->execute([$Email, $Password]);
             $user = $stmt->fetch(); //Accessing the INFO
             $total = $stmt->rowCount();
@@ -61,16 +61,19 @@ class myStudent
 
                 session_start();
 
-                $_SESSION['Account'] = $user['Account'];
-                if ($_SESSION['Account'] == "Reciever") {
+                $_SESSION['Position'] = $user['Position'];
+                if ($_SESSION['Position'] == "releasing") {
                     header("location: pages/recieverAccount.php");
-                } elseif ($_SESSION['Account'] == "Releasing") {
+                } elseif ($_SESSION['Position'] == "releasing1") {
                     header("location: pages/releasingAccount.php");
+                }
+                 elseif ($_SESSION['Position'] == "admin") {
+                    header("location: pages/AdminAccount.php");
                 } else {
                     // session_destroy();
                     echo "<div class='alert alert-danger text-center'>Error Please Try Again</div>";
                 }
-                // if($_SESSION['Account'] == "Releasing"){
+                // if($_SESSION['Position'] == "Releasing"){
                 //     echo"releasing";
                 // }
 
@@ -94,26 +97,27 @@ class myStudent
     public function get_users()
     {
         $connection = $this->OpenConnection();
-        $getUsers = $connection->prepare("SELECT * FROM user1 ORDER BY id ASC");
+        $getUsers = $connection->prepare("SELECT First_Name,Email,Password,Employee_ID FROM loginusers ORDER BY id ASC");
         $getUsers->execute();
         $users = $getUsers->fetchAll();
 
 
         foreach ($users as $user) {
             echo " <tr>";
-            echo " <td>$user[name]</td>";
-            echo " <td>$user[email]</td>";
-            echo " <td>$user[password]</td>";
-            echo " <td><a href='recieverAccount.php?Delete=$user[id]' class='btn btn-info'>Delete</td>";
-            echo " <td><button type='button'  class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@getbootstrap'>A</button></td>";
-            echo " <td><i class='fas fa-trash-alt fa-2x'>$user[id]</i>";
+            echo " <td>$user[Employee_ID]</td>";
+            echo " <td>$user[First_Name]</td>";
+            echo " <td>$user[Email]</td>";
+            echo " <td>$user[Password]</td>";
+            // echo " <td><a href='recieverPosition.php?Delete=$user[id]' class='btn btn-info'>Delete</td>";
+            // echo " <td><button type='button'  class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@getbootstrap'>A</button></td>";
+            // echo " <td><i class='fas fa-trash-alt fa-2x'>$user[id]</i>";
         }
 
-        if(isset($_GET['Delete'])){
-            $id = $_GET['Delete'];
-            $editusers= $connection ->prepare("Delete From user1 where id =$id");
-            $editusers->execute();
-        }
+        // if(isset($_GET['Delete'])){
+        //     $id = $_GET['Delete'];
+        //     $editusers= $connection ->prepare("Delete From user1 where id =$id");
+        //     $editusers->execute();
+        // }
        
     }
     // public function set_user_data($array){
