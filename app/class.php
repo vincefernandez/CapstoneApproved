@@ -120,6 +120,44 @@ class myStudent
         // }
        
     }
+    public function get_employee(){
+       
+            $connection = $this->OpenConnection();
+            $getUsers = $connection->prepare("SELECT * FROM loginusers ORDER BY id ASC");
+            $getUsers->execute();
+            $users = $getUsers->fetchAll();
+    
+    
+            foreach ($users as $user) {
+                echo "<tr>";
+                echo " <th scope='row'>$user[id]</th> ";
+                echo " <td>$user[Employee_ID]</td>";
+                echo " <td>$user[First_Name]</td>";
+                echo " <td>$user[Last_Name]</td>";
+                echo " <td>$user[Middle_Name]</td>";
+                echo " <td>$user[Position]</td>";
+                echo " <td>$user[Email]</td>";
+                echo " <td>$user[Age]</td>";
+                echo " <td>$user[Contact_Number]</td>";
+                echo " <td>$user[Password]</td>";
+                echo "  <td>
+                <button class='btn btn-warning'><i class='fas fa-edit fa-1x'></i></button>
+                <button class='btn btn-danger'> <i class='fas fa-trash-alt fa-1x'></i></button>
+             </td>";
+                echo "</tr>";
+                // echo " <td><a href='recieverPosition.php?Delete=$user[id]' class='btn btn-info'>Delete</td>";
+                // echo " <td><button type='button'  class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@getbootstrap'>A</button></td>";
+                // echo " <td><i class='fas fa-trash-alt fa-2x'>$user[id]</i>";
+            }
+    
+            // if(isset($_GET['Delete'])){
+            //     $id = $_GET['Delete'];
+            //     $editusers= $connection ->prepare("Delete From user1 where id =$id");
+            //     $editusers->execute();
+            // }
+           
+        
+    }
     // public function set_user_data($array){
     //     if(!isset($_SESSION)){
     //         session_start();
