@@ -24,6 +24,6 @@
 </head>
 
 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
-  <strong class="h2">SORRY you dnt have access to this shit!</strong><a href="../index.php">TryLogin</a>
+  <strong class="h2">SORRY you dnt have access to this Site</strong><a href="../index.php">TryLogin</a>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
