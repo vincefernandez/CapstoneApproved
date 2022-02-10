@@ -1,0 +1,82 @@
+@media (min-width: 1200px)
+{
+h1, .h1 {
+    font-size: 2.5rem;
+    color: #494848;
+}
+}
+
+.dataTable-table th a {
+    text-decoration: none;
+    color: #636362;
+}
+
+.sb-sidenav-dark {
+    background-color: #152238;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: #152238 !important;
+}
+.icon {
+    position: relative;
+    font-size: 20px;
+
+}
+.del {
+    display: inline;
+    color: #86dc3d;
+    
+    
+}
+.edit {
+    display: inline;
+    color: #d21f3c;
+    
+    
+    
+}
+
+.fa-trash {
+    color: #d21f3c;
+    font-size: 20px;
+   
+}
+
+.fa-edit {
+    color: #86dc3d;
+    font-size: 20px;
+    
+}
+button {
+    padding: 0;
+    border: none;
+}
+
+.btn-warning {
+   
+    background-color: transparent;
+    border: none;
+}
+
+.btn-danger {
+    color: #d21f3c;
+    background-color: transparent;
+    border: none;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    
+}
+/* 
+new side bar css  */
+
+

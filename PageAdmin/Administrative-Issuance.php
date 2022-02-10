@@ -6,7 +6,7 @@ include_once('../app/class.php');
 session_start();
 $Employee_ID = $_SESSION['login'];
 if (isset($_SESSION['login'])) {
-    if ($_SESSION['login'] == 001) {
+    if ($_SESSION['login'] == 4) {
         echo 'Hello ' . $_SESSION['login'];
     } else{
         header('location: ../errorPages/err1.php');

@@ -77,57 +77,61 @@ if (isset($_SESSION['login'])) {
                                         <tr>
                                             <td>Administrative Issuance</td>
 
-                                            <td class="d-flex justify-content-around">
+                                            <!-- <td class="d-flex justify-content-around">
                                                 <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
                                                 <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            </td> -->
+                                            <td class="d-flex justify-content-around">
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Appointment and clearance Issuance</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Certification Authentication and Verifications</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Numerical</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Receiving Internal</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Receiving Routing and Mailing</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>System Administrator</td>
 
                                             <td class="d-flex justify-content-around">
-                                                <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i> </button>
+                                            <button><i class="fas fa-trash"></i></button>
+                                            <button><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
 

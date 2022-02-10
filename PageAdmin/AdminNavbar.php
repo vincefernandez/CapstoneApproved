@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand p-3" href="AdminAccount.php">R M I S<img src="../assets/img/logo.jpg" class=" float-right img-fluid ml-5" style="height:40px; width:50px; margin-left:15px;"> </a>
+        <a class="navbar-brand p-3" href="AdminAccount.php">R M I S<img src="../assets/img/new-logo.png" class=" float-right img-fluid ml-5" style="height:40px; width:50px; margin-left:15px;"> </a>
 
 
         <!-- Sidebar Toggle-->
@@ -27,7 +27,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Profile</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />

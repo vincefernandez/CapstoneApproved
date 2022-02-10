@@ -5,10 +5,10 @@ include_once('../app/class.php');
 
 session_start();
 
-session_start();
+
 $Employee_ID = $_SESSION['login'];
 if (isset($_SESSION['login'])) {
-    if ($_SESSION['login'] == 001) {
+    if ($_SESSION['login'] == 002) {
         echo 'Hello ' . $_SESSION['login'];
     } else{
         header('location: ../errorPages/err1.php');
@@ -37,11 +37,11 @@ if (isset($_SESSION['login'])) {
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Manage Appointment and Clearance</h1>
+                <h1 class="mt-4">Appointment and Clearances</h1>
                 <ol class="breadcrumb mb-4">
                     <!-- <li class="breadcrumb-item active">Main</li> -->
                    
-                    <a href="#">  <button class="btn btn-primary">Add Record</button></a>
+                    <a href="AddRecord_AC.php">  <button class="btn btn-primary">Add Record</button></a>
                    
                 </ol>
                 <!-- <div class="row">
@@ -87,59 +87,12 @@ if (isset($_SESSION['login'])) {
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>21-03899</td>
-                                            <td>Vincent Fernandez</td>
-                                            <td>Nosi</td>
-                                            <td>Imagefile.jpg</td>
-                                            <td>Manila</td>
-                                            <td> <button class="btn btn-outline-success">Active</button> </td>
-                                            <td>01/25/2022</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21-03899</td>
-                                            <td>Vincent Fernandez</td>
-                                            <td>Nosi</td>
-                                            <td>Imagefile.jpg</td>
-                                            <td>Manila</td>
-                                            <td> <button class="btn btn-outline-success">Active</button> </td>
-                                            <td>01/25/2022</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>21-03899</td>
-                                            <td>Vincent Fernandez</td>
-                                            <td>Nosi</td>
-                                            <td>Imagefile.jpg</td>
-                                            <td>Manila</td>
-                                            <td> <button class="btn btn-outline-success">Active</button> </td>
-                                            <td>01/25/2022</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                      
-
+                                    <form action="Appointment-Clearance.php" method="get">
+                                            <?php
+                                            $student->getAppointmentClearance();
+                                            
+                                            ?>
+                                        </form>
                                     </tbody>
                                 </table>
                             </div>

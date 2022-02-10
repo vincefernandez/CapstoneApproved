@@ -103,8 +103,10 @@ if (isset($_SESSION['login'])) {
                                            <td></td>
                                            <td>
                                                 <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
+                                                    <div class="icon">
+                                                        <div class="edit"><i class="fas fa-edit text-center"></i></div>
+                                                   <div class="del"><i class="fas fa-trash"></i></div> </div>
+                                                    
                                                 </div>
                                             </td>
                                         </tr>
