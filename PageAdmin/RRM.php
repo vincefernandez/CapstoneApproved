@@ -7,10 +7,10 @@ $Employee_ID = $_SESSION['login'];
 if (isset($_SESSION['login'])) {
     if ($_SESSION['login'] == 4) {
         echo 'Hello ' . $_SESSION['login'];
-    } else{
+    } else {
         header('location: ../errorPages/err1.php');
     }
-}else{
+} else {
     header('location: ../errorPages/err1.php');
 }
 ?>
@@ -26,10 +26,10 @@ if (isset($_SESSION['login'])) {
 
 
 <body class="sb-nav-fixed">
-   
+
     <?php
-   include('AdminNavbar.php');
-   include('AdminSidebar.php');
+    include('AdminNavbar.php');
+    include('AdminSidebar.php');
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -40,6 +40,16 @@ if (isset($_SESSION['login'])) {
                 </ol>
 
                 <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            Now Serving 
+                        </div>
+                        <div class="card-body justify-content-center">
+                           <?php $student->DisplayQueQueTransfer();?>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
                     <div class="table-responsive">
                         <div class="card mb-4">
                             <div class="card-header">
@@ -59,18 +69,9 @@ if (isset($_SESSION['login'])) {
                                             <th>Received By</th>
 
                                     </thead>
-                                    <!-- <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>School/Department</th>
-                                        <th>Received By</th>
-                                        <th>Date Received</th>
-                                        <th>Received By</th>
-                                    </tr>
-                                </tfoot> -->
+                                  
 
-                                    <!-- //////////////////// ADD FOOT IF YOU WANT //////////////// -->
+                                
                                     <tbody class="table-responsive table align-middle">
                                         <tr>
                                             <td>09222222221</td>
@@ -90,7 +91,7 @@ if (isset($_SESSION['login'])) {
                         </div>
 
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="table-responsive">
                         <div class="card mb-4">

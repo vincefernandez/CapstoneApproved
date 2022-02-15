@@ -1,7 +1,7 @@
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark z-index-fixed-2" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" >
+            <div class="sb-sidenav-menu" >
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div> 
                     <a class="nav-link p-auto" href="AdminAccount.php" >

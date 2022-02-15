@@ -34,7 +34,7 @@ if (isset($_SESSION['login'])) {
    include('AdminNavbar.php');
    include('AdminSidebar.php');
     ?>
-    <div id="layoutSidenav_content">
+    <div id="layoutSidenav_content" style="position:relative; z-index: 1001">
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">Manage Numerical</h1>

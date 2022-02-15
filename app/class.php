@@ -71,24 +71,19 @@ class myStudent
                     header("location: pageAdmin/AdminAccount.php");
                     $_SESSION['login'] = $user['Employee_ID'];
                     $user['Employee_ID'] = $_SESSION['login'];
-
-
                 } elseif ($_SESSION['login'] == 2) {
                     header("location: pageAdmin/Appointment-Clearance.php");
                     $_SESSION['login'] = $user['Employee_ID'];
                     $user['Employee_ID'] = $_SESSION['login'];
-
-
                 } elseif ($_SESSION['login'] == 3) {
                     $_SESSION['login'] = $user['Employee_ID'];
                     header("location: pageAdmin/Numerical-Communications.php");
                     $user['Employee_ID'] = $_SESSION['login'];
-                } elseif ($_SESSION['login'] == 4 ){
+                } elseif ($_SESSION['login'] == 4) {
                     $_SESSION['login'] = $user['Employee_ID'];
                     header("location: pageAdmin/RRM.php");
                     $user['Employee_ID'] = $_SESSION['login'];
-                }
-                 else {
+                } else {
                     // session_destroy();
                     echo "<div class='alert alert-danger text-center'>Error Please Try Again</div>";
                 }
@@ -376,7 +371,179 @@ class myStudent
         $users = $getUsers->fetchAll();
     }
 
+    public function AddDatabaseToQueeing()
+    {
+        if (isset($_POST['Submit'])) {
 
+
+            $connection = $this->OpenConnection();
+            $Name = $_POST['Name'];
+
+            $Transaction_ID = rand(100000, 999999);
+            $Trans_ID = $Transaction_ID;
+            $Ticket_Number = rand(100000, 999999);
+            $ID = $Ticket_Number;
+            $Purpose = $_POST['Purpose'];
+            $created_date = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO queeing_tbl (Transaction_ID,Ticket_Number,Name,Purpose,Date) 
+            VALUES ('$Trans_ID','$Ticket_Number','$Name','$Purpose','$created_date')";
+            $connection->exec($sql);
+
+            echo "<div class='alert alert-warning alert-dismissible fade show text-center' role='alert'>
+            
+            <strong>Congrats $Name!</strong> You got queeing ticket number $ID.
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+          </div>";
+        } else {
+            echo "<div class='alert alert-warning alert-dismissible fade show text-center' role='alert'>
+            
+            <strong>Err!</strong> Please Enter details
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+          </div>";
+        }
+    }
+
+    public function DisplayQueeingUser()
+    {
+        $connection = $this->OpenConnection();
+
+        $getUsers = $connection->prepare("SELECT Name,Purpose FROM queeing_tbl LIMIT 3");
+        $getUsers->execute();
+        $users = $getUsers->fetchAll();
+
+
+        foreach ($users as $user) {
+            echo "<div class='card col-4'>
+        <img src='assets/img/new-logo1.png' class='card-img-top' alt='...'>
+        <div class='card-body'>
+            <h5 class='card-title'>$user[Name]</h5>
+            
+            <p class='card-text'><small class='text-muted'>$user[Purpose]</small></p>
+        </div>
+    </div>";
+        }
+    }
+    public function getRowNumbers()
+    {
+        $connection = $this->OpenConnection();
+        $sql = ("Select * From queeing_tbl");
+        $stmt = $this->OpenConnection()->query($sql);
+
+        $count = $stmt->rowCount();
+
+        print($count);
+    }
+    public function DisplayTransactions()
+    {
+        $connection = $this->OpenConnection();
+        $sql = ("Select Transaction_ID,Name,Purpose,Date From queeing_tbl");
+        $stmt = $this->OpenConnection()->query($sql);
+
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($users as $user) {
+            echo "<tr>";
+            echo "<td>$user[Name]";
+            echo "<td>$user[Transaction_ID]";
+            echo "<td>$user[Name]";
+            echo "<td>$user[Date]";
+            echo "</tr>";
+        }
+    }
+
+    public function DisplayQueueTransactions()
+    {
+        $connection = $this->OpenConnection();
+        $sql = ("Select id,Transaction_Type from transaction_list");
+        $stmt = $this->OpenConnection()->query($sql);
+
+        $transaction = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($transaction as $transactions) {
+
+            echo "<tr>";
+            echo "<td>$transactions[id]";
+            echo "<td>$transactions[Transaction_Type]";
+            echo "<td>
+            <a href='Transaction_List.php?Delete=$transactions[id]' onclick='checkDeleteItem();'>
+            <i class='fas fa-trash fa-2x'></i></a>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+            <a href='Transaction_List.php?Edit=$transactions[id]'><i class='fas fa-edit fa-2x'></i></a>
+            </button>";
+
+
+            echo "</tr>";
+        }
+    }
+
+    public function DeleteQueueTransctions()
+    {
+        $connection = $this->OpenConnection();
+
+        if (isset($_GET['Delete'])) {
+            $deleteID = $_GET['Delete'];
+            $getUsers = $connection->prepare("Delete FROM Transaction_list Where id=$deleteID");
+            $getUsers->execute();
+        }
+    }
+
+    public function Edit()
+    {
+        $connection = $this->OpenConnection();
+
+        if (isset($_GET['Edit'])) {
+            $Edit = $_GET['Edit'];
+            $sql = $connection->prepare("Select * from transaction_list where id=$Edit");
+            $stmt = $this->OpenConnection()->query($sql);
+            if ($_GET['Edit'] > 1) {
+
+
+                $Datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($Datas as $Data) {
+
+                    echo "<input type='password' class='form-control' id='exampleInputPassword1' placeholder='$Data[Transaction_Type]'>";
+                }
+            }
+        }
+    }
+
+    public function AddTransactionType()
+    {
+        $connection = $this->OpenConnection();
+
+        if (isset($_POST['Submit'])) {
+            
+            $Transaction_Type = $_POST['Transaction_Type'];
+            $created_date = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO transaction_list (Transaction_Type,Date) 
+            VALUES ('$Transaction_Type','$created_date')";
+            $connection->exec($sql);
+        }
+    }
+    public function DisplayToSelect()
+    {
+        $connection = $this->OpenConnection();
+        $sql = ("Select Transaction_Type From transaction_list");
+        $stmt = $this->OpenConnection()->query($sql);
+        $DisplaySelect = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($DisplaySelect as $Select) {
+            echo "
+            <option value=$Select[Transaction_Type]>$Select[Transaction_Type]</option>";
+        }
+    }
+
+    public function DisplayQueQueTransfer(){
+        $connection = $this->OpenConnection();
+        $sql = ("Select Name,Purpose From queeing_tbl LIMIT 1");
+        $stmt = $this->OpenConnection()->query($sql);
+        $DisplaySelect = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach($DisplaySelect as $Display)
+        echo " <h1 class='card-title badge bg-primary text-wrap h1 text-black'>Name : $Display[Name]</h1>
+        <p class='card-text'>Purpose : $Display[Purpose]</p>
+        <a href='#next' class='btn btn-primary'>Next</a> ";
+    }
 
 
 
