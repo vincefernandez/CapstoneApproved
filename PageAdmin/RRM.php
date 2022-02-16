@@ -13,6 +13,8 @@ if (isset($_SESSION['login'])) {
 } else {
     header('location: ../errorPages/err1.php');
 }
+
+$student->SetNextPage();
 ?>
 
 
@@ -42,11 +44,13 @@ if (isset($_SESSION['login'])) {
                 <div class="row">
                     <div class="card">
                         <div class="card-header">
-                            Now Serving 
+                            Now Serving
                         </div>
-                        <div class="card-body justify-content-center">
-                           <?php $student->DisplayQueQueTransfer();?>
-                        </div>
+                        <form action="RRM.php" method="get">
+                            <div class="card-body justify-content-center">
+                                <?php $student->DisplayQueQueTransfer(); ?>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <!-- <div class="row">
@@ -93,286 +97,37 @@ if (isset($_SESSION['login'])) {
                     </div>
                 </div> -->
                 <div class="row">
-                    <div class="table-responsive">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Outgoing Notifications
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Control Number</th>
-                                            <th>Date Received</th>
-                                            <th>Source Address</th>
-                                            <th>Subject Matter</th>
-                                            <th>Action Unit</th>
-                                            <th>Action taken</th>
-                                            <th>Date Release</th>
-                                            <th>Received By</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Control Number</th>
-                                            <th>Date Received</th>
-                                            <th>Source Address</th>
-                                            <th>Subject Matter</th>
-                                            <th>Action Unit</th>
-                                            <th>Action taken</th>
-                                            <th>Date Release</th>
-                                            <th>Received By</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>01-2013</td>
-                                            <td>12/20/21</td>
-                                            <td>Caloocan City</td>
-                                            <td>Source11111</td>
-                                            <td>action1</td>
-                                            <td>Done</td>
-                                            <td>01/25/2022</td>
-                                            <td>Juan Dela Cruz</td>
-                                            <td>
-                                                <div class="d-flex justify-content-around">
-                                                    <i class="fas fa-edit text-center"></i>
-                                                    <i class="fas fa-trash"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    </div>
+
+                    <label for="basic-url" class="form-label">Your vanity URL</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text">.00</span>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-text">With textarea</span>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
                     </div>
                 </div>
             </div>

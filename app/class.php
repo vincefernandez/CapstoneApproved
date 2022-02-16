@@ -536,13 +536,22 @@ class myStudent
 
     public function DisplayQueQueTransfer(){
         $connection = $this->OpenConnection();
-        $sql = ("Select Name,Purpose From queeing_tbl LIMIT 1");
+        $sql = ("Select id,Name,Purpose From queeing_tbl LIMIT 1");
         $stmt = $this->OpenConnection()->query($sql);
         $DisplaySelect = $stmt->fetchAll(PDO::FETCH_ASSOC);
 foreach($DisplaySelect as $Display)
         echo " <h1 class='card-title badge bg-primary text-wrap h1 text-black'>Name : $Display[Name]</h1>
         <p class='card-text'>Purpose : $Display[Purpose]</p>
-        <a href='#next' class='btn btn-primary'>Next</a> ";
+        <a href='RRM.php?Delete=$Display[id]' class='btn btn-primary'>Next</a> ";
+    }
+
+    public function SetNextPage(){
+        $connection = $this->OpenConnection();
+        if (isset($_GET['Delete'])) {
+            $deleteID = $_GET['Delete'];
+            $getUsers = $connection->prepare("Delete FROM queeing_tbl Where id=$deleteID");
+            $getUsers->execute();
+        }
     }
 
 
