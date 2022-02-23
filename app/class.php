@@ -593,6 +593,16 @@ class myStudent
         }
     }
 
+    public function CountData(){
+        $connection = $this->OpenConnection();
+       $sql = "Select Count(*) From users_tbl";
+       $res = $connection->query($sql);
+       $count = $res->fetchColumn();
+
+       echo $count;
+
+    }
+
 
 
 
