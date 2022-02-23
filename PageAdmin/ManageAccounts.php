@@ -50,7 +50,7 @@ $student->AddAccounts();
                             Featured
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Hello Sample!</h5>
+                            <h5 class="card-title">Manage Accounts</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -61,38 +61,28 @@ $student->AddAccounts();
                 </div>
                 <div class="row">
                     <div class="card-header text-center">
-                        Manage Sections
+                        Manage Accounts
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
 
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Manage Accounts</h5>
+                                <h5 class="card-title">Add Accounts</h5>
                                 <p class="card-text">This will manage keme keme</p>
-                                <a href="ManageAccounts.php" class="btn btn-primary">Go Link</a>
+                                <a href="manage-AddAccounts.php" class="btn btn-primary">Go Link</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Manage Sample1 </h5>
+                                <h5 class="card-title">Show All Accounts </h5>
                                 <p class="card-text">This will manage keme keme</p>
-                                <a href="#" class="btn btn-primary">Go Link</a>
+                                <a href="manage-ShowAccounts.php" class="btn btn-primary">Go Link</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <div class="card-body">
-
-                                <h5 class="card-title">Manage Sample1 </h5>
-                                <p class="card-text">This will manage keme keme</p>
-                                <a href="#" class="btn btn-primary"> Go Link </a>
-
-                            </div>
-                        </div>
-                    </div>
+                  
                 </div>
 
                 <div class="row">
@@ -123,8 +113,7 @@ $student->AddAccounts();
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="Password" required>
                             </div>
-                         
-                            
+
                             <button type="submit" class="btn btn-primary" name="CreateAccountSubmit">Submit</button>
                         </form>
                     </div>

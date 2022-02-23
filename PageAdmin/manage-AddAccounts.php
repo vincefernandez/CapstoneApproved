@@ -50,7 +50,7 @@ $student->AddAccounts();
                             Featured
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Hello Sample!</h5>
+                            <h5 class="card-title">Manage Accounts</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -59,45 +59,11 @@ $student->AddAccounts();
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="card-header text-center">
-                        Manage Sections
-                    </div>
-                    <div class="col-sm-4">
 
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Manage Accounts</h5>
-                                <p class="card-text">This will manage keme keme</p>
-                                <a href="ManageAccounts.php" class="btn btn-primary">Go Link</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Manage Sample1 </h5>
-                                <p class="card-text">This will manage keme keme</p>
-                                <a href="#" class="btn btn-primary">Go Link</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <div class="card-body">
-
-                                <h5 class="card-title">Manage Sample1 </h5>
-                                <p class="card-text">This will manage keme keme</p>
-                                <a href="#" class="btn btn-primary"> Go Link </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="container-fluid px-4">
-                        <form method="POST" action="#.php">
+                        <form method="POST" action="../app/class.php">
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">First_Name</label>
                                 <input type="text" class="form-control" id="exampleInputPassword1" name="First_Name" required>
@@ -109,6 +75,10 @@ $student->AddAccounts();
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Middle_Name</label>
                                 <input type="text" class="form-control" id="exampleInputPassword1" name="Middle_Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Suffix</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" name="Suffix" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Position</label>
@@ -123,8 +93,33 @@ $student->AddAccounts();
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="Password" required>
                             </div>
-                         
-                            
+                            <label for="exampleInputEmail1" class="form-label">Select User Permission</label>
+                            <div class="form-check">
+
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Administrative Issuance
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Appointment & Clearance
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    CAV
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Checked checkbox
+                                </label>
+                            </div>
+
                             <button type="submit" class="btn btn-primary" name="CreateAccountSubmit">Submit</button>
                         </form>
                     </div>

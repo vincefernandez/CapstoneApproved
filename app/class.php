@@ -63,11 +63,11 @@ class myStudent
 
                 // $_SESSION['Position'] = $user['Position'];
 
-                $_SESSION['login'] = $user['Employee_ID'];
+                $_SESSION['login'] = $user['Position'];
 
 
 
-                if ($_SESSION['login'] == 1) {
+                if ($_SESSION['login'] == "Admin") {
                     header("location: pageAdmin/AdminAccount.php");
                     $_SESSION['login'] = $user['Employee_ID'];
                     $user['Employee_ID'] = $_SESSION['login'];
@@ -151,29 +151,31 @@ class myStudent
     {
 
         $connection = $this->OpenConnection();
-        $getUsers = $connection->prepare("SELECT * FROM users_tbl ORDER BY id ASC");
+        $getUsers = $connection->prepare("SELECT * FROM users_tbl ORDER BY Employee_ID ASC");
         $getUsers->execute();
         $users = $getUsers->fetchAll();
 
 
         foreach ($users as $user) {
             echo "<tr>";
-            echo " <th scope='row'>$user[id]</th> ";
+
             echo " <td>$user[Employee_ID]</td>";
             echo " <td>$user[First_Name]</td>";
             echo " <td>$user[Last_Name]</td>";
             echo " <td>$user[Middle_Name]</td>";
+            echo " <td>$user[Suffix]</td>";
+
             echo " <td>$user[Position]</td>";
             echo " <td>$user[Email]</td>";
-            echo " <td>$user[Age]</td>";
-            echo " <td>$user[Contact_Number]</td>";
+
+
             echo " <td>$user[Password]</td>";
-            echo "  <td>
-                <button class='btn btn-warning'><i class='fas fa-edit fa-1x'></i></button>
-                <button class='btn btn-danger'> <i class='fas fa-trash-alt fa-1x'></i></button>
-             </td>";
+            echo " <td>$user[Date]</td>";
+
+
+            echo " <td><a href='../app/class.php?Delete=$user[Employee_ID]' class='btn btn-info'>Delete</td>";
+            echo " <td><a href='#DIPATAPOS!' class='btn btn-info'>Edit</td>";
             echo "</tr>";
-            // echo " <td><a href='recieverPosition.php?Delete=$user[id]' class='btn btn-info'>Delete</td>";
             // echo " <td><button type='button'  class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='@getbootstrap'>A</button></td>";
             // echo " <td><i class='fas fa-trash-alt fa-2x'>$user[id]</i>";
         }
@@ -512,7 +514,7 @@ class myStudent
         $connection = $this->OpenConnection();
 
         if (isset($_POST['Submit'])) {
-            
+
             $Transaction_Type = $_POST['Transaction_Type'];
             $created_date = date("Y-m-d H:i:s");
             $sql = "INSERT INTO transaction_list (Transaction_Type,Date) 
@@ -534,18 +536,20 @@ class myStudent
         }
     }
 
-    public function DisplayQueQueTransfer(){
+    public function DisplayQueQueTransfer()
+    {
         $connection = $this->OpenConnection();
         $sql = ("Select id,Name,Purpose From queeing_tbl LIMIT 1");
         $stmt = $this->OpenConnection()->query($sql);
         $DisplaySelect = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach($DisplaySelect as $Display)
-        echo " <h1 class='card-title badge bg-primary text-wrap h1 text-black'>Name : $Display[Name]</h1>
+        foreach ($DisplaySelect as $Display)
+            echo " <h1 class='card-title badge bg-primary text-wrap h1 text-black'>Name : $Display[Name]</h1>
         <p class='card-text'>Purpose : $Display[Purpose]</p>
         <a href='RRM.php?Delete=$Display[id]' class='btn btn-primary'>Next</a> ";
     }
 
-    public function SetNextPage(){
+    public function SetNextPage()
+    {
         $connection = $this->OpenConnection();
         if (isset($_GET['Delete'])) {
             $deleteID = $_GET['Delete'];
@@ -553,6 +557,44 @@ foreach($DisplaySelect as $Display)
             $getUsers->execute();
         }
     }
+
+    public function AddAccounts()
+    {
+        $connection = $this->OpenConnection();
+
+        if (isset($_POST['CreateAccountSubmit'])) {
+
+            $First_Name = $_POST['First_Name'];
+            $Last_Name = $_POST['Last_Name'];
+            $Email = $_POST['Email'];
+            $Position = $_POST['First_Name'];
+            $Password = $_POST['Password'];
+            $Middle_Name = $_POST['Middle_Name'];
+            $created_date = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO  users_tbl  (First_Name,Last_Name,Middle_Name,Position,Email,Password,Date) 
+        VALUES ('$First_Name','$Last_Name','$Middle_Name','$Email','$Position','$Password','$created_date')";
+            $connection->exec($sql);
+
+            echo "Success";
+            header('location: ../pageAdmin/manage-Addaccounts.php');
+        } else {
+            echo "Error";
+        }
+    }
+
+    public function deleteAccounts(){
+        $connection = $this->OpenConnection();
+
+        if(isset($_GET['Delete'])){
+            $Delete = $_GET['Delete'];
+            $getUsers = $connection->prepare("Delete FROM users_tbl Where Employee_ID=$Delete");
+            $getUsers->execute();
+            header('location: ../pageAdmin/manage-ShowAccounts.php');
+        }
+    }
+
+
+
 
 
 
@@ -576,3 +618,6 @@ foreach($DisplaySelect as $Display)
 }
 
 $student = new myStudent();
+
+$student->AddAccounts();
+$student->deleteAccounts();
